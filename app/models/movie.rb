@@ -3,25 +3,41 @@ class Movie < ActiveRecord::Base
   has_many :reviews
   mount_uploader :poster, PosterUploader
 
-  validates :title,
-    presence: true
+  validates :title, presence: true
 
-  validates :director,
-    presence: true
+  validates :director, presence: true
 
-  validates :runtime_in_minutes,
-    numericality: { only_integer: true }
+  validates :runtime_in_minutes, numericality: { only_integer: true }
 
-  validates :description,
-    presence: true
+  validates :description, presence: true   
 
-  #validates :poster_image_url, ##Commented to work on image uploader
-    # presence: true    
-
-  validates :release_date,
-    presence: true
+  validates :release_date, presence: true
 
   validate :release_date_is_in_the_future
+
+  scope :search_results, -> (params) do
+    if params[:title].present? || params[:director].present?
+      self.where("movies.title LIKE ? OR movies.director LIKE ?", params[:title], params[:director])
+    else
+     find_by_duration(params[:duration])
+    end
+  end
+
+      
+  # scope :find_by_director, ->(director) { where("director", director) }
+  # scope :find_by_title, ->(title) { where("movies.title LIKE ?", title) }
+  scope :find_by_duration, ->(duration) do
+    case duration
+    when '1'
+      where("runtime_in_minutes < ?", 90)
+    when '2'
+      where("runtime_in_minutes BETWEEN ? AND ?", 90, 120)
+    when '3'
+      where("runtime_in_minutes > ?", 120)
+    else
+      where("runtime_in_minutes < ?", 0)
+    end  
+  end
 
   def review_average
     if reviews.size > 0

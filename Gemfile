@@ -45,6 +45,10 @@ gem 'rmagick'
 
 gem 'kaminari'
 
+#Foundation
+
+gem 'foundation-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -14,6 +14,11 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
+  # DONS notes
+  # def show     
+  #   @user = User.find(params[:id].to_i)
+  # end
+
   def edit
     @user = User.find(params[:id])
   end

@@ -10,9 +10,6 @@ RottenMangoes::Application.routes.draw do
 
   namespace :admin do
     resources :users do
-      # member do
-      #   get 'make_admin'
-      # end
       post 'make_admin'
     end
   end
