@@ -1,5 +1,5 @@
-RottenMangoes::Application.routes.draw do
-
+RottenMangoes::Application.routes.draw do 
+  
   resources :movies do
     resources :reviews, only: [:new, :create]
   end
@@ -17,6 +17,8 @@ RottenMangoes::Application.routes.draw do
     end
   end
   root 'movies#index'
+
+  resources :searches
 
 end
 
