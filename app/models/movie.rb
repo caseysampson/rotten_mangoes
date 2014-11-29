@@ -35,7 +35,7 @@ class Movie < ActiveRecord::Base
     when '3'
       where("runtime_in_minutes > ?", 120)
     else
-      where("runtime_in_minutes < ?", 0)
+      where("runtime_in_minutes > ?", 0)
     end  
   end
 

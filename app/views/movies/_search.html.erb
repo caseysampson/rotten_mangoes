@@ -1,16 +1,29 @@
-
+<br />
 <%= form_tag("/", method: "get") do %>
-  <div>
-    <%= label_tag(:title, "Search for title:") %>
-    <%= text_field_tag(:title) %>
+  
+  <div class = "row">
+    <div class="small-4 medium-4 large-4 columns">
+      <%= label_tag(:title, "Search for title:") %>
+    </div>
+    <div class="small-4 medium-4 large-4 columns">
+      <%= label_tag(:director, "Search for director:") %>
+    </div>
+    <div class="small-4 medium-4 large-4 columns">
+      <%= label_tag(:duration, "Search by duration") %>
+    </div>
   </div>
-  <div>
-    <%= label_tag(:director, "Search for director:") %>
-    <%= text_field_tag(:director) %>
+  <div class = "row">
+    <div class="small-4 medium-4 large-4 columns">
+      <%= text_field_tag(:title) %>
+    </div>
+    <div class="small-4 medium-4 large-4 columns">
+      <%= text_field_tag(:director) %>
+    </div>
+    <div class="small-3 medium-3 large-3 columns">
+      <%= select_tag(:duration, options_for_select([['select an option', 0], ['under 90 minutes', 1], ['90 to 120 minutes', 2], ['over 120 minutes', 3]])) %>
+    </div>
+    <div class="small-1 medium-1 large-1 columns">
+        <%= submit_tag ("Search") %> 
+    </div>
   </div>
-  <div>
-    <%= label_tag(:duration, "Search by duration") %>
-    <%= select_tag(:duration, options_for_select([['select an option', 0], ['under 90 minutes', 1], ['90 to 120 minutes', 2], ['over 120 minutes', 3]])) %>
-  </div>
-  <div><%= submit_tag ("Search") %></div>
 <% end %>
