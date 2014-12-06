@@ -49,6 +49,7 @@ gem 'foundation-rails'
 
 group :production do
   gem 'pg'
+  gem 'puma'
 end
 
 group :development, :test do
