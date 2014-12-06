@@ -13,7 +13,7 @@ class Movie < ActiveRecord::Base
 
   validates :release_date, presence: true
 
-  validate :release_date_is_in_the_future
+  # validate :release_date_is_in_the_future
 
   scope :search_results, -> (params) do
     if params[:title].present? || params[:director].present?
@@ -35,7 +35,7 @@ class Movie < ActiveRecord::Base
     when '3'
       where("runtime_in_minutes > ?", 120)
     else
-      where("runtime_in_minutes < ?", 0)
+      where("runtime_in_minutes > ?", 0)
     end  
   end
 
