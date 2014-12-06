@@ -13,7 +13,7 @@ class Movie < ActiveRecord::Base
 
   validates :release_date, presence: true
 
-  validate :release_date_is_in_the_future
+  # validate :release_date_is_in_the_future
 
   scope :search_results, -> (params) do
     if params[:title].present? || params[:director].present?

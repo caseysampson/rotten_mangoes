@@ -23,7 +23,8 @@
       <%= select_tag(:duration, options_for_select([['select an option', 0], ['under 90 minutes', 1], ['90 to 120 minutes', 2], ['over 120 minutes', 3]])) %>
     </div>
     <div class="small-1 medium-1 large-1 columns">
-        <%= submit_tag ("Search") %> 
+        <%= submit_tag("Search", :class => "button [tiny]") %> 
     </div>
   </div>
 <% end %>
+<br>

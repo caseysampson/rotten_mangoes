@@ -17,17 +17,26 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <a href="#"><h1 style="color:red">Rotten Mangoes</h1></a>
+          <h1><a href="#">Rotten Mangoes</a></h1>
         </li>
       </ul>
       <section class="top-bar-section">
         <ul>
           <li class="left">
-            <a href="#"><%= link_to "Submit a movie!", new_movie_path %></a>
+            <a href="#"><%= link_to "Submit Movie", new_movie_path %></a>
+          </li>
+        </ul>
+      </section>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="active">
+            <a href="#"><%= link_to "All Movies", movies_path %></a>
           </li>
         </ul>
       </section>
     </nav>
+
+
 
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 

@@ -1,74 +1,72 @@
-<%= link_to "Back to all movies", movies_path %>
-
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <%= image_tag @movie.poster.thumb.url() %>
-    </div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <%= image_tag @movie.poster.thumb.url() %>
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
-    </div>
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "Are you sure?" %>) 
-        <span class="round alert label"> 
-          <%= @movie.review_average %>/10
-        </span>
-    </div>
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "Are you sure?" %>) 
+      <span class="round alert label"> 
+        <%= @movie.review_average %>/10
+      </span>
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <%= formatted_date(@movie.release_date) %>
-    </div>
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <%= formatted_date(@movie.release_date) %>
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      Director: <%= @movie.director %>
-    </div>
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    Director: <%= @movie.director %>
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      Runtime: <%= @movie.runtime_in_minutes %> minutes
-    </div>
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    Runtime: <%= @movie.runtime_in_minutes %> minutes
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <p>Description: <%= @movie.description %></p>
-    </div>
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <p>Description: <%= @movie.description %></p>
   </div>
-  <br />
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <h6>Reviews of <%= @movie.title %></h6>
-    </div>
+</div>
+<br />
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <h6>Reviews of <%= @movie.title %></h6>
   </div>
-  <br />
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <% if current_user %>
-        <% @movie.reviews.each do |review| %>
-          <div>Review: <%= review.text %></div>
-          <div>Rating: <%= review.rating_out_of_ten %>/10</div>
-          <div>Author: <%= review.user.full_name %></div>
-          <br />
-      <% end %>
-    </div>
+</div>
+<br />
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <% if current_user %>
+      <% @movie.reviews.each do |review| %>
+        <div>Review: <%= review.text %></div>
+        <div>Rating: <%= review.rating_out_of_ten %>/10</div>
+        <div>Author: <%= review.user.full_name %></div>
+        <br />
+    <% end %>
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <%= link_to "Write a review!", new_movie_review_path(@movie) %>
-    </div>
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <%= link_to "Write a review!", new_movie_review_path(@movie) %>
   </div>
-  <div class="row">
-    <div class="small-6 large-centered columns">
-      <% else %>
-        Please <%= link_to "log in", new_session_path %> to see reviews and add your own.
-      <% end %>
-    </div>
-  </div> 
-  <br />
+</div>
+<div class="row">
+  <div class="small-6 large-centered columns">
+    <% else %>
+      Please <%= link_to "log in", new_session_path %> to see reviews and add your own.
+    <% end %>
+  </div>
+</div> 
+<br />
   
 
 
