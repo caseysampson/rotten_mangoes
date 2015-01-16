@@ -1,13 +1,28 @@
-<footer>
+<!-- <footer>
   <% if current_user %>
     Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
         <div class="small-1 medium-1 large-1 columns">
           <% if current_user.admin? %>
             <%= link_to "Admin" %>
-          <% end %>
           <% else %>
-          <%= link_to "Log In", new_session_path %> - <%= link_to "Sign Up", new_user_path %>
+            <%= link_to "Log In", new_session_path %> - <%= link_to "Sign Up", new_user_path %>
+          <% end %>
+      </div>
+  <% end %>
+</footer>
+<br> -->
+
+<footer>
+  <% if current_user %>
+    Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+        <div class="small-1 medium-1 large-1 columns">
+         
+            <%= link_to "Admin" %>
+          <br>
+            <%= link_to "Log In", new_session_path %> - <%= link_to "Sign Up", new_user_path %>
+          
       </div>
   <% end %>
 </footer>
 <br>
+
