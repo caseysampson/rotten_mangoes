@@ -46,10 +46,17 @@ class Admin::UsersController < ApplicationController
     @user = User.new
   end
 
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   @user.destroy
+  #   redirect_to admin_users_path
+  # end
+
   def destroy
     @user = User.find(params[:id])
+    UserMailer.goodbye_email(@user).deliver if @user.destroy
+    redirect_to admin_users_path, notice: "#{@user.firstname} deleted successfully."
     @user.destroy
-    redirect_to admin_users_path
   end
 
   protected

@@ -39,6 +39,8 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+# gem 'rmagick', '2.13.2'
+
 #Kaminari
 
 gem 'kaminari'
