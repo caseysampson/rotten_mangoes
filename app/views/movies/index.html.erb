@@ -3,11 +3,11 @@
 <br />
 <div class = "row">
   <% @movies.each do |movie| %>
-    <div class="small-6 medium-4 large-3 columns" style="height:450px;width:220px;border:1px; overflow:auto;">
+    <div class="small-6 medium-4 large-3 columns" style="height:450px;width:220px;border:1px; overflow:auto">
       <div><%= image_tag movie.poster.thumb.url() %></div>
       <div><%= link_to image_tag(movie.poster_image_url), movie_path(movie) %></div>
-      <div><%= link_to movie.title, movie_path(movie) %> <span class="round alert label"><%= movie.review_average %>/10
-      </span></div>
+      <h5><%= link_to movie.title, movie_path(movie) %> <span class="round alert label"><%= movie.review_average %>/10
+      </span></h5>
       <div><%= formatted_date(movie.release_date) %></div>
       <div><%= movie.director %> </div>
       <div><%= movie.runtime_in_minutes %> minutes</div>

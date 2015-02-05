@@ -13,7 +13,6 @@ class Movie < ActiveRecord::Base
 
   validates :release_date, presence: true
 
-  # validate :release_date_is_in_the_future
 
   scope :search_results, -> (params) do
     if params[:title].present? || params[:director].present?
@@ -23,9 +22,6 @@ class Movie < ActiveRecord::Base
     end
   end
 
-      
-  # scope :find_by_director, ->(director) { where("director", director) }
-  # scope :find_by_title, ->(title) { where("movies.title LIKE ?", title) }
   scope :find_by_duration, ->(duration) do
     case duration
     when '1'
