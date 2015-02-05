@@ -5,17 +5,18 @@
   </div> -->
 
   <div class="small-3 large-3 columns">
+    <br>
     <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
     <br>
     (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "Are you sure?" %>)
   </div>
 
   <div class="small-9 large-9 columns">
-    <h3><%= @movie.title %>
+    <h2><%= @movie.title %>
       <span class="round alert label"> 
         <%= @movie.review_average %>/10
       </span>
-    </h3>
+    </h2>
   </div>
 
 
@@ -31,48 +32,45 @@
     <strong>Runtime: </strong><%= @movie.runtime_in_minutes %> minutes
   </div>
 
-  <div class="small-4 large-4 columns">
+  <div class="small-6 large-6 columns">
     <p><strong>Description: </strong><%= @movie.description %></p>
   </div>
 
-  <div class="small-4 large-5 columns">
+  <div class="small-3 large-3 columns">
     <p> </p>
   </div>
-
-
 </div>
-
-<br />
+<br>
 <div class="row">
-  <div class="small-6 large-6 columns">
-    <h6>Reviews of <%= @movie.title %></h6>
+  <div class="small-6 medium-offset-3 large-6 columns">
+    <h4>Reviews of <strong><%= @movie.title %></strong></h4>
   </div>
 </div>
-<br />
+
 <div class="row">
-  <div class="small-6 large-6 columns">
+  <div class="small-6 medium-offset-3 large-6 columns">
     <% if current_user %>
       <% @movie.reviews.each do |review| %>
-        <div>Review: <%= review.text %></div>
-        <div>Rating: <%= review.rating_out_of_ten %>/10</div>
-        <div>Author: <%= review.user.full_name %></div>
-        <br />
+        <div><strong>Review: </strong><%= review.text %></div>
+        <div><strong>Rating: </strong><%= review.rating_out_of_ten %>/10</div>
+        <div><strong>Author: </strong><%= review.user.full_name %></div>
+        <br>
     <% end %>
   </div>
 </div>
 <div class="row">
-  <div class="small-6 large-6 columns">
+  <div class="small-6 medium-offset-3 large-6 columns">
     <%= link_to "Write a review!", new_movie_review_path(@movie) %>
   </div>
 </div>
 <div class="row">
-  <div class="small-6 large-6 columns">
+  <div class="small-6 medium-offset-3 large-6 columns">
     <% else %>
       Please <%= link_to "log in", new_session_path %> to see reviews and add your own.
     <% end %>
   </div>
 </div> 
-<br />
+
   
 
 

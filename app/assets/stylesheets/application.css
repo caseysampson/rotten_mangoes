@@ -13,3 +13,64 @@
 
  *= require_tree .
  */
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#body {
+  background-color: #FF8243;
+}
+
+#somebody {
+  opacity: 0.90;
+}
+
+.button {
+  /*background-color: #00CC00 !important;*/
+  background-color: #008C00 !important;
+  box-shadow:  5px 5px 10px 0px #888888;
+}
+
+#rotten {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+a {
+  color: #008C00 !important;
+}
+
+h3 {
+  color: #008C00 !important;
+  font-family: Rockwell !important;
+}
+
+h2 {
+  color: #008C00 !important;
+  font-family: Rockwell !important;
+}
+   
+.top-bar {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding-bottom: 60px;
+}
+
+#submit_movie { 
+  padding-top: 15px; 
+}
+
+#sign_in { 
+  padding-top: 15px; 
+  padding-right: 15px; 
+}
+
+
+ 
+
+
+
+
+

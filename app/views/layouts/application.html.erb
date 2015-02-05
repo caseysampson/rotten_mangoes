@@ -12,38 +12,50 @@
 
   </head>
 
-  <body class="container">
+  <body class="container" id = "body">
 
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="#">Rotten Mangoes</a></h1>
+          <div id="rotten"> 
+            <h2><a href="#"><%= link_to "Rotten Mangoes", movies_path %></a></h2>
+          </div>
         </li>
       </ul>
+      <section class="top-bar-section right">
+        <% if current_user.admin? %>
+            <div id="sign_in">
+              <font color="white">Signed in as <%= current_user.full_name %> </font>(<%= link_to "Log out ", session_path("current"), method: :delete %>) <%= link_to "Admin" %>
+        <% elsif current_user %> 
+          <div id="sign_in">                 
+            <font color="white">Signed in as <%= current_user.full_name %> </font>(<%= link_to "Log out ", session_path("current"), method: :delete %>)
+          </div>
+        <% else %>
+          <div id="sign_in"> 
+            <%= link_to "Log In", new_session_path %> - <%= link_to "Sign Up ", new_user_path %>
+          </div>
+          <br> 
+        <% end %>
+      </section>
+      
       <section class="top-bar-section">
         <ul>
           <li class="left">
-            <a href="#"><%= link_to "Submit Movie", new_movie_path %></a>
-          </li>
-        </ul>
-      </section>
-      <section class="top-bar-section">
-        <ul class="right">
-          <li class="active">
-            <a href="#"><%= link_to "All Movies", movies_path %></a>
+            <a href="#" id = "submit_movie"><%= link_to "Submit Movie", new_movie_path %></a>
           </li>
         </ul>
       </section>
     </nav>
 
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <div id="somebody">
+      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value) %>
-    <% end %>
-      <%= yield %>
-    <%= render 'layouts/footer' %>
-    
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value) %>
+      <% end %>
+        <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>     
   </body>
 
 </html>

@@ -2,28 +2,28 @@
 <%= form_tag("/", method: "get") do %>
   
   <div class = "row">
-    <div class="small-4 medium-4 large-4 columns">
-      <%= label_tag(:title, "Search for title:") %>
+    <div class="small-3 medium-3 large-3 columns">
+      <%= label_tag(:title, "Search by title") %>
     </div>
-    <div class="small-4 medium-4 large-4 columns">
-      <%= label_tag(:director, "Search for director:") %>
+    <div class="small-3 medium-3 large-3 columns">
+      <%= label_tag(:director, "Search by director") %>
     </div>
-    <div class="small-4 medium-4 large-4 columns">
+    <div class="small-6 medium-6 large-6 columns">
       <%= label_tag(:duration, "Search by duration") %>
     </div>
   </div>
   <div class = "row">
-    <div class="small-4 medium-4 large-4 columns">
-      <%= text_field_tag(:title) %>
+    <div class="small-3 medium-3 large-3 columns">
+      <%= text_field_tag(:title) %> 
     </div>
-    <div class="small-4 medium-4 large-4 columns">
-      <%= text_field_tag(:director) %>
+    <div class="small-3 medium-3 large-3 columns">
+      <%= text_field_tag(:director) %> 
     </div>
     <div class="small-3 medium-3 large-3 columns">
       <%= select_tag(:duration, options_for_select([['select an option', 0], ['under 90 minutes', 1], ['90 to 120 minutes', 2], ['over 120 minutes', 3]])) %>
     </div>
-    <div class="small-1 medium-1 large-1 columns">
-        <%= submit_tag("Search", :class => "button [tiny]") %> 
+    <div class="small-3 medium-3 large-3 columns">
+        <%= submit_tag("Search", :class => "small button radius") %> 
     </div>
   </div>
 <% end %>

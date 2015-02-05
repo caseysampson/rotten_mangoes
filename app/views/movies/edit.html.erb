@@ -1,5 +1,11 @@
-<%= link_to "Back to this movie", movie_path(@movie) %>
-
-<h2>Edit this movie.</h2>
+<div class="small-2 medium-2 large-2 columns">
+  <%= link_to "Back to movie", movie_path(@movie) %>
+</div>
+<br>
+<div class = "row">
+  <div class="small-5 small-centered medium-5 medium-centered large-5 large-centered columns">
+    <h3>Edit this movie</h3>
+  </div>
+</div>
 
 <%= render 'form' %>
